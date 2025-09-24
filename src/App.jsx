@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import LostSection from "./Components/LostSection";
 import FoundSection from "./Components/FoundItems";
-import RecentlyFoundSection from "./Components/Recently";
+import RecentlyFoundSection from "./Components/RecentlyFoundSection";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
