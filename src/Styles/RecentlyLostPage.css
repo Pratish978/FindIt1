@@ -100,3 +100,81 @@
     transform: translateX(0);
   }
 }
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .recently-lost-page {
+    padding: 50px 15px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .lost-items-container {
+    gap: 25px;
+  }
+
+  .lost-card img {
+    height: 250px; /* reduce image height for smaller screens */
+  }
+
+  .lost-info h3 {
+    font-size: 20px;
+  }
+
+  .lost-info p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recently-lost-page {
+    padding: 40px 10px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .lost-card img {
+    height: 220px;
+  }
+
+  .lost-info h3 {
+    font-size: 18px;
+  }
+
+  .lost-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lost-items-container {
+    grid-template-columns: 1fr; /* single column on very small screens */
+    gap: 20px;
+  }
+
+  .lost-card img {
+    height: 200px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .lost-info h3 {
+    font-size: 16px;
+  }
+
+  .lost-info p {
+    font-size: 12px;
+  }
+
+  .lost-info .location,
+  .lost-info .date,
+  .lost-info .contact {
+    font-size: 12px;
+  }
+}

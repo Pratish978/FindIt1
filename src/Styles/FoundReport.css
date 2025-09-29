@@ -69,3 +69,45 @@
   0% { transform: translateX(50px); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
+
+
+/* ===== Responsive Updates ===== */
+@media (max-width: 900px) {
+  .found-report-page {
+    margin: 30px 20px;
+    padding: 30px;
+  }
+
+  .found-form input,
+  .found-form textarea {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+
+  .found-form button {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .found-report-page h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .found-form textarea {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .found-report-page {
+    padding: 20px;
+  }
+
+  .found-form button {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
