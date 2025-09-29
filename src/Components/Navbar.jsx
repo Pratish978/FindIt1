@@ -18,8 +18,8 @@ const Navbar = () => {
       {/* Nav Links */}
       <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
         <a href="/">Home</a>
-        <a href="#lost">Lost Items</a>
-        <a href="#find">Found Items</a>
+        <a href="/lost-report">Lost Items</a>
+        <a href="/found-report">Found Items</a>
         <a href="/login">Login</a>
         <a href="/signup">Sign Up</a>
       </div>

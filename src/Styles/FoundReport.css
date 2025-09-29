@@ -1,0 +1,71 @@
+.found-report-page {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: slideIn 1s ease forwards;
+}
+
+.found-report-page h2 {
+  color: #6366f1;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.found-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.found-form label {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.found-form input,
+.found-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.found-form input:focus,
+.found-form textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 8px rgba(99,102,241,0.3);
+}
+
+.found-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.found-form button {
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.found-form button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #818cf8, #6366f1);
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}

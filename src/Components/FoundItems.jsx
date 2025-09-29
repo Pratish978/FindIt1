@@ -26,7 +26,7 @@ const FoundSection = () => {
       <h2>Found Items</h2>
       <img src={foundImage} alt="Found item" />
       <p>If you found something, report it here and help return it to the owner.</p>
-      <Link to="/signup">
+      <Link to="/found-report">
         <button>Report Found Item</button>
       </Link>
     </section>

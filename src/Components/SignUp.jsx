@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../Styles/SignUp.css";
 import { FaGoogle } from "react-icons/fa";
 
