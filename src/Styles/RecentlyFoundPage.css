@@ -1,0 +1,132 @@
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===== Recently Found Page ===== */
+.recently-found-page {
+  padding: calc(80px + 40px) 20px 80px; /* 80px navbar + 40px spacing */
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+   padding-top: 100px;
+}
+
+.recently-found-page.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Page Title ===== */
+.page-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1f2937;
+  position: relative;
+}
+
+.page-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #10b981;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Found Items Grid ===== */
+.found-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ===== Found Card ===== */
+.found-card {
+  background: #f9fafc;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 6px 20px rgba(16, 185, 129, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideRight 0.8s forwards;
+  opacity: 0;
+}
+
+.found-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0px 12px 25px rgba(16, 185, 129, 0.25);
+}
+
+.found-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* ===== Found Info ===== */
+.found-info {
+  padding: 20px;
+}
+
+.found-info h3 {
+  font-size: 24px;
+  color: #10b981;
+  margin-bottom: 10px;
+}
+
+.found-info p {
+  font-size: 16px;
+  color: #374151;
+  margin: 4px 0;
+}
+
+.found-info .location,
+.found-info .date,
+.found-info .contact {
+  font-weight: 500;
+  color: #065f46;
+}
+
+.found-info .description {
+  color: #4b5563;
+  margin-top: 6px;
+}
+
+/* ===== Animations ===== */
+@keyframes slideRight {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 1024px) {
+  .recently-found-page { padding: calc(80px + 30px) 15px 60px; }
+  .page-title { font-size: 36px; }
+  .found-items-container { gap: 25px; }
+  .found-card img { height: 250px; }
+  .found-info h3 { font-size: 20px; }
+  .found-info p { font-size: 14px; }
+}
+
+@media (max-width: 768px) {
+  .recently-found-page { padding: calc(80px + 30px) 10px 50px; }
+  .page-title { font-size: 32px; }
+  .found-card img { height: 220px; }
+  .found-info h3 { font-size: 18px; }
+  .found-info p { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .recently-found-page { padding: calc(80px + 20px) 10px 40px; }
+  .found-items-container { grid-template-columns: 1fr; gap: 20px; }
+  .found-card img { height: 200px; }
+  .page-title { font-size: 28px; }
+  .found-info h3 { font-size: 16px; }
+  .found-info p { font-size: 12px; }
+  .found-info .location,
+  .found-info .date,
+  .found-info .contact { font-size: 12px; }
+}

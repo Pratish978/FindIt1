@@ -1,12 +1,13 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* ===== Page Styling ===== */
 .recently-lost-page {
   padding: 60px 20px;
-  background: #f9fafc; /* subtle light gray for page background */
+  background: #ffffff; /* white background */
   font-family: 'Poppins', sans-serif;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: all 0.8s ease;
 }
 
@@ -34,40 +35,44 @@
   border-radius: 2px;
 }
 
+/* ===== Lost Items Grid ===== */
 .lost-items-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
+/* ===== Individual Card ===== */
 .lost-card {
-  background: #ffffff; /* white background for cards */
+  background: #ffffff; /* white card */
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0px 6px 20px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: slideRight 0.8s forwards;
   opacity: 0;
+  animation: fadeInUp 0.8s forwards;
 }
 
 .lost-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0px 12px 25px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.25);
 }
 
 .lost-card img {
   width: 100%;
-  height: 300px; /* increased height */
+  height: 300px;
   object-fit: cover;
+  display: block;
 }
 
+/* ===== Card Info ===== */
 .lost-info {
   padding: 20px;
 }
 
 .lost-info h3 {
   font-size: 24px;
-  color: #4f46e5; /* purple accent for titles */
+  color: #4f46e5; /* purple accent */
   margin-bottom: 10px;
 }
 
@@ -89,19 +94,19 @@
   margin-top: 6px;
 }
 
-/* Animations */
-@keyframes slideRight {
+/* ===== Animations ===== */
+@keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-/* Mobile Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .recently-lost-page {
     padding: 50px 15px;
@@ -111,12 +116,8 @@
     font-size: 36px;
   }
 
-  .lost-items-container {
-    gap: 25px;
-  }
-
   .lost-card img {
-    height: 250px; /* reduce image height for smaller screens */
+    height: 250px;
   }
 
   .lost-info h3 {
@@ -152,7 +153,7 @@
 
 @media (max-width: 480px) {
   .lost-items-container {
-    grid-template-columns: 1fr; /* single column on very small screens */
+    grid-template-columns: 1fr; /* single column */
     gap: 20px;
   }
 
@@ -168,10 +169,7 @@
     font-size: 16px;
   }
 
-  .lost-info p {
-    font-size: 12px;
-  }
-
+  .lost-info p,
   .lost-info .location,
   .lost-info .date,
   .lost-info .contact {

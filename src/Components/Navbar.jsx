@@ -8,18 +8,18 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">Find<span>It</span></div>
 
-      {/* Mobile Hamburger Menu */}
+      
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-      {/* Nav Links */}
+      
       <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
         <a href="/">Home</a>
-        <a href="/lost-report">Lost Items</a>
-        <a href="/found-report">Found Items</a>
+        <a href="/recently-lost">Lost Items</a>
+        <a href="/recently-found">Found Items</a>
         <a href="/login">Login</a>
         <a href="/signup">Sign Up</a>
       </div>

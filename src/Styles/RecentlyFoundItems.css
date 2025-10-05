@@ -1,0 +1,109 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.recently-found, .recently-found-page {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title, .page-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1f2937;
+  position: relative;
+}
+
+.section-title::after, .page-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #3b82f6; /* Blue accent */
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.recent-items-container, .found-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.recent-card, .found-card {
+  background: #f0f5ff; /* light blue background */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 6px 20px rgba(59, 130, 246, 0.15); /* blue shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+.recent-card:hover, .found-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0px 12px 25px rgba(59, 130, 246, 0.25); /* blue shadow on hover */
+}
+
+.recent-card img, .found-card img {
+  width: 100%;
+  height: auto;       /* make image full height automatically */
+  max-height: 300px;  /* optional max height */
+  object-fit: contain; /* show full image without cropping */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.recent-card:hover img, .found-card:hover img {
+  transform: scale(1.05);
+}
+
+.item-title, .found-info h3 {
+  font-size: 24px;
+  color: #3b82f6; /* blue text */
+  margin: 10px 0;
+}
+
+.found-info p, .recent-card p {
+  font-size: 16px;
+  color: #1e3a8a; /* dark blue text */
+  margin: 4px 0;
+}
+
+.show-more-btn {
+  margin-top: 40px;
+  padding: 12px 35px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .recent-items-container, .found-items-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .recent-card img, .found-card img {
+    height: auto;
+    max-height: 250px;
+  }
+}

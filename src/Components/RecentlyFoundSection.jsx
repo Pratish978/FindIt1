@@ -1,4 +1,4 @@
-import "../Styles/Recently.css";
+import "../Styles/RecentlyFoundItems.css";
 import recentImg1 from "../assets/Recent1.webp";
 import recentImg2 from "../assets/Recent2.jpeg";
 import recentImg3 from "../assets/Recent3.jpeg";

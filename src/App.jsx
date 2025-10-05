@@ -6,58 +6,80 @@ import Hero from "./Components/Hero";
 import LostSection from "./Components/LostSection";
 import FoundSection from "./Components/FoundItems";
 import RecentlyFoundSection from "./Components/RecentlyFoundSection";
+import RecentlyFoundItems from "./Components/RecentlyFoundItems";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import LostSectionPage from "./Components/LostSectionPage";
 import FoundReport from "./Components/FoundReport";
 import RecentlyLostPage from "./Components/RecentlyLostPage";
+import RecentlyFoundPage from "./Components/RecentlyFoundPage";
 
+// Scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
-// Wrapper to conditionally show Navbar
+// Layout wrapper
 const Layout = ({ children }) => {
   const location = useLocation();
-  const hideNavbarPaths = ["/lost-report", "/found-report","/recently-lost"]; // paths where navbar is hidden
+
+  // Only hide Navbar on report pages
+  const hideNavbarPaths = ["/lost-report", "/found-report"];
   const hideNavbar = hideNavbarPaths.includes(location.pathname);
 
   return (
     <>
       {!hideNavbar && <Navbar />}
-      {children}
+      <ScrollToTop />
+      <div style={{ paddingTop: !hideNavbar ? "60px" : "0" }}>
+        {children}
+      </div>
+      {!hideNavbar && <Footer />}
     </>
   );
 };
 
+const AppRoutes = () => (
+  <Layout>
+    <Routes>
+      {/* Home Page */}
+      <Route
+        path="/"
+        element={
+          <>
+            <Hero />
+            <LostSection />
+            <FoundSection />
+            <RecentlyFoundSection />
+            <RecentlyFoundItems />
+          </>
+        }
+      />
+
+      {/* Login / Signup */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+
+      {/* Lost / Found Report Pages (Navbar hidden) */}
+      <Route path="/lost-report" element={<LostSectionPage />} />
+      <Route path="/found-report" element={<FoundReport />} />
+
+      {/* Recently Lost / Recently Found Full Pages (Navbar visible) */}
+      <Route path="/recently-lost" element={<RecentlyLostPage />} />
+      <Route path="/recently-found" element={<RecentlyFoundPage />} />
+    </Routes>
+  </Layout>
+);
+
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          {/* Home Page */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <LostSection />
-                <FoundSection />
-                <RecentlyFoundSection />
-                <Footer />
-              </>
-            }
-          />
-
-          {/* Login / Signup */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-
-          {/* Lost / Found Report Pages (Navbar hidden) */}
-          <Route path="/lost-report" element={<LostSectionPage />} />
-          <Route path="/found-report" element={<FoundReport />} />
-
-          <Route path="/recently-lost" element={<RecentlyLostPage />} />
-        </Routes>
-      </Layout>
+      <AppRoutes />
     </Router>
   );
 }
