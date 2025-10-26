@@ -1,0 +1,178 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===== Page Styling ===== */
+.recently-lost-page {
+  padding: 60px 20px;
+  background: #ffffff; /* white background */
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.recently-lost-page.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1f2937;
+  position: relative;
+}
+
+.page-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #6366f1;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Lost Items Grid ===== */
+.lost-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ===== Individual Card ===== */
+.lost-card {
+  background: #ffffff; /* white card */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+}
+
+.lost-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.25);
+}
+
+.lost-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Card Info ===== */
+.lost-info {
+  padding: 20px;
+}
+
+.lost-info h3 {
+  font-size: 24px;
+  color: #4f46e5; /* purple accent */
+  margin-bottom: 10px;
+}
+
+.lost-info p {
+  font-size: 16px;
+  color: #374151;
+  margin: 4px 0;
+}
+
+.lost-info .location,
+.lost-info .date,
+.lost-info .contact {
+  font-weight: 500;
+  color: #1e3a8a; /* dark blue accent */
+}
+
+.lost-info .description {
+  color: #4b5563;
+  margin-top: 6px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .recently-lost-page {
+    padding: 50px 15px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .lost-card img {
+    height: 250px;
+  }
+
+  .lost-info h3 {
+    font-size: 20px;
+  }
+
+  .lost-info p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recently-lost-page {
+    padding: 40px 10px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .lost-card img {
+    height: 220px;
+  }
+
+  .lost-info h3 {
+    font-size: 18px;
+  }
+
+  .lost-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lost-items-container {
+    grid-template-columns: 1fr; /* single column */
+    gap: 20px;
+  }
+
+  .lost-card img {
+    height: 200px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .lost-info h3 {
+    font-size: 16px;
+  }
+
+  .lost-info p,
+  .lost-info .location,
+  .lost-info .date,
+  .lost-info .contact {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: linear-gradient(135deg, #f9fafc, #ffffff);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+  animation: slideDown 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.logo span {
+  color: #6366f1;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #6366f1;
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #4f46e5;
+  transform: scale(1.05);
+}
+
+/* ===== Hamburger Menu ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  background: #1f2937;
+  height: 3px;
+  width: 28px;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;      /* compact menu */
+    width: 200px;      /* small width */
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    padding: 15px 20px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    display: none;     /* hidden by default */
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes slideDown {
+  0% { transform: translateY(-100%); opacity: 0; }
+  80% { transform: translateY(10px); opacity: 1; }
+  100% { transform: translateY(0); }
+}
